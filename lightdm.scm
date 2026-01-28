@@ -1,4 +1,5 @@
-; install -d -m0711 -olightdm -glightdm /run/lightdm
+(use-modules (blackcat shepherd-utils))
+
 (define lightdm
   (service
     '(lightdm)
@@ -6,4 +7,6 @@
     #:start (make-forkexec-constructor '("lightdm"))
     #:stop (make-kill-destructor)
     #:respawn? #t))
-(register-services (list lightdm))
+
+(when (setup-dir "/run/lightdm" #o711 "lightdm")
+  (register-services (list lightdm)))
