@@ -1,6 +1,6 @@
 (define network-manager
   (service
-    '(network-manager dns)
+    '(network-manager)
     #:requirement '(dbus)
     #:start (make-forkexec-constructor
               '("NetworkManager" "-n"))

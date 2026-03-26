@@ -1,6 +1,6 @@
 (define dhcpcd
   (service
-    '(dhcpcd dns)
+    '(dhcpcd)
     #:start (make-forkexec-constructor
               '("dhcpcd" "-B" "-M"))
     #:stop (make-kill-destructor)
