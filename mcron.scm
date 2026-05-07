@@ -1,7 +1,6 @@
-(define mcron
+(register-services (list
   (service
-    '(mcron crond cron)
+    '(mcron)
     #:start (make-forkexec-constructor '("mcron"))
     #:stop (make-kill-destructor)
-    #:respawn? #t))
-(register-services (list mcron))
+    #:respawn? #t)))

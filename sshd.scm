@@ -1,8 +1,7 @@
-(define sshd-forkexec
+(register-services (list
   (service
-    '(sshd-forkexec sshd ssh-daemon)
+    '(sshd)
     #:start (make-forkexec-constructor
-	      '("sshd" "-D"))
+              '("sshd" "-D"))
     #:stop (make-kill-destructor)
-    #:respawn? #t))
-(register-services (list sshd-forkexec))
+    #:respawn? #t)))
