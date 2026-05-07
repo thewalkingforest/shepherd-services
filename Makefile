@@ -1,7 +1,6 @@
-DESTDIR=
-PREFIX ?= /usr/local
+DESTDIR ?=
 
-SERVICES_DIR=$(DESTDIR)$(PREFIX)/etc/shepherd.d
+SERVICES_DIR=$(DESTDIR)/etc/shepherd.d
 
 SERVICES = $(shell find . -name '*.scm' -exec basename {} \;)
 
